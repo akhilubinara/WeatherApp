@@ -19,8 +19,10 @@ function displayData(placeDetails){
 	country = placeDetails['location'].country
     temperature = placeDetails['current'].temp_c;
 	humidity = placeDetails['current'].humidity;
+	condition = placeDetails.current.condition.text
          var htmlData = `
-         <table>
+    <div style=" padding:0 0px">
+		 <table>
 		 <tr>
 			<td>Country Name</td>
 			<td>:</td>
@@ -28,29 +30,29 @@ function displayData(placeDetails){
 			<td rowspan="5"></td>
 		 </tr>
 		 <tr>
-			<td>Capital</td>
-			<td>:</td>
-			<td>${capital}</td>
-		 </tr>
-		 <tr>
 			<td>Region</td>
 			<td>:</td>
 			<td>${region}</td>
 		 </tr>
 		 <tr>
-			<td>Temperature</td>
+			<td>Weather Condition</td>
 			<td>:</td>
-			<td style="font-size:40px">${temperature} °C</td>
-		 </tr>
-		 <tr>
-			<td>humidity</td>
-			<td>:</td>
-			<td style="font-size:40px">${humidity} %</td>
+			<td>${condition}</td>
 		 </tr>
 		 </table>
-   
-</div>`
+		 </div>
+		 
+		 <div style="display:flex; justify-content:center">
+		 <div style="margin: 20px">
+		 <p style="font-size:40px; margin-top:10px; color:lightgreen">${temperature} °C</p> 
+		 	<p style="font-size:20px; margin-top:10px; ">Temperature</p>
+		 </div>
+		 <div style="margin: 20px">
+		 <p style="font-size:40px; margin-top:10px; color:lightgreen">${humidity} %</p> 
+		 	<p style="font-size:20px; margin-top:10px">Humidity</p>
+		 </div>
+		 </div>`
+
   p_details.innerHTML=htmlData;
-//   var t = `<h1 style="font-size:50px">${Temperature}°C</h1>`
-//   temp.innerHTML = t; 
+
 }
